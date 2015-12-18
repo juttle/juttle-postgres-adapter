@@ -1,0 +1,33 @@
+{
+  "name": "juttle-postgres-adapter",
+  "version": "0.1.0",
+  "description": "Juttle adapter for PostgreSQL",
+  "keywords": ["juttle", "adapter", "postgresql"],
+  "homepage": "https://github.com/juttle/juttle-postgres-adapter",
+  "bugs": "https://github.com/juttle/juttle-postgres-adapter/issues",
+  "license": "Apache-2.0",
+  "repository": "juttle/juttle-postgres-adapter",
+  "scripts": {
+    "test": "mocha test/*.spec.js",
+    "jshint": "jshint *.js test/*.js",
+    "style": "jscs *.js test/*.js",
+    "lint": "npm run jshint & npm run style"
+  },
+  "dependencies": {
+    "knex": "^0.9.0",
+    "pg": "^4.4.3",
+    "underscore": "^1.8.3",
+    "juttle-sql-adapter-common": "0.1.0"
+  },
+  "devDependencies": {
+    "sqlite3": "^3.1.1",
+    "chai": "^1.10.0",
+    "jshint": "^2.9.1-rc1",
+    "mocha": "^2.3.4",
+    "jscs": "^2.6.0"
+  },
+  "engines": {
+    "node": ">=4.2.0",
+    "npm": ">=2.14.7"
+  }
+}
