@@ -1,6 +1,7 @@
 # Juttle PostgreSQL Adapter
 
-[![Build Status](https://magnum.travis-ci.com/juttle/juttle-postgres-adapter.svg?token=y7186y8XHjB7CcxwUcoX)](https://magnum.travis-ci.com/juttle/juttle-postgres-adapter)
+[![Build Status](https://travis-ci.org/juttle/juttle-postgres-adapter.svg)](https://travis-ci.org/juttle/juttle-postgres-adapter)
+
 
 PostgreSQL adapter for the [Juttle data flow
 language](https://github.com/juttle/juttle), with read & write support.
