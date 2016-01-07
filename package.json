@@ -11,7 +11,7 @@
     "test": "mocha test/*.spec.js",
     "jshint": "jshint *.js test/*.js",
     "style": "jscs *.js test/*.js",
-    "lint": "npm run jshint & npm run style"
+    "lint": "npm run jshint && npm run style"
   },
   "dependencies": {
     "juttle-sql-adapter-common": "^0.1.0",
