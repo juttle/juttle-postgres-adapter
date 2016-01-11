@@ -2,7 +2,11 @@
   "name": "juttle-postgres-adapter",
   "version": "0.1.0",
   "description": "Juttle adapter for PostgreSQL",
-  "keywords": ["juttle", "adapter", "postgresql"],
+  "keywords": [
+    "juttle",
+    "adapter",
+    "postgresql"
+  ],
   "homepage": "https://github.com/juttle/juttle-postgres-adapter",
   "bugs": "https://github.com/juttle/juttle-postgres-adapter/issues",
   "license": "Apache-2.0",
@@ -14,7 +18,8 @@
     "lint": "npm run jshint && npm run style"
   },
   "dependencies": {
-    "juttle-sql-adapter-common": "^0.1.0",
+    "juttle": "^0.2.0",
+    "juttle-sql-adapter-common": "^0.2.0",
     "knex": "^0.9.0",
     "pg": "^4.4.3",
     "underscore": "^1.8.3"
