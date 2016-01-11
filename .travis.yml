@@ -13,7 +13,8 @@ addons:
         - g++-4.8
 
 before_install:
-  - export CXX="g++-4.8"
+    - export CXX="g++-4.8"
+    - npm install juttle@^0.2.0 juttle-sql-adapter-common@^0.2.0
 
 node_js:
     - '4.2'
@@ -23,7 +24,6 @@ services:
   - postgresql
 
 before_script:
-    - npm install juttle@^0.1.0
     - npm install -g jshint
     - npm install -g jscs
 
