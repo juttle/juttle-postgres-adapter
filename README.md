@@ -1,6 +1,6 @@
 # Juttle PostgreSQL Adapter
 
-[![Build Status](https://travis-ci.org/juttle/juttle-postgres-adapter.svg)](https://travis-ci.org/juttle/juttle-postgres-adapter)
+[![Build Status](https://travis-ci.org/juttle/juttle-postgres-adapter.svg?branch=master)](https://travis-ci.org/juttle/juttle-postgres-adapter)
 
 
 PostgreSQL adapter for the [Juttle data flow
