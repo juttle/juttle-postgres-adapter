@@ -56,7 +56,7 @@ within Juttle. To do so, add the following to your `~/.juttle/config.json` file:
 ```json
 {
     "adapters": {
-        "juttle-postgres-adapter": {
+        "postgres": {
             "connection": "postgres://postgres@localhost:5432/postgres"
         }
     }
