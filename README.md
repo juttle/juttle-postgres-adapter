@@ -85,6 +85,14 @@ Name | Type | Required | Description
 -----|------|----------|-------------
 `table`   | string | yes | table to write points into
 
+## Numeric Types
+
+When reading numeric data types of [variable storage size](http://www.postgresql.org/docs/9.1/static/datatype-numeric.html)
+from PostgreSQL, values are treated as type `String` in juttle.
+You may want to use `Number.fromString()` [function](http://juttle.github.io/juttle/modules/number/#numberfromstring)
+in the juttle program if your data has numbers of these types.
+When juttle reads fields of PostgreSQL `real` and `double precision` types, their values are treated as numbers.
+
 ## Contributing
 
 Contributions are welcome! Please file an issue or open a pull request.
