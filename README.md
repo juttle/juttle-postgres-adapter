@@ -51,7 +51,7 @@ $ npm install juttle-postgres-adapter
 ## Configuration
 
 The adapter needs to be registered and configured so that it can be used from
-within Juttle. To do so, add the following to your `~/.juttle/config.json` file:
+within Juttle. To do so, use the following format when adding a Postgres configuration to your `~/.juttle/config.json` file:
 
 ```json
 {
@@ -63,9 +63,11 @@ within Juttle. To do so, add the following to your `~/.juttle/config.json` file:
 }
 ```
 
-The `connection` key should point to your PostgreSQL instance.
+The `connection` key should point to your PostgreSQL instance. The format of the connection string is:
 
-More documentation on the connection string can be found in the [knex.js documentation](http://knexjs.org/#Installation-client)
+```
+<protocol>://<username>[:<>password]@<hostname>:<port>/<database_name>
+```
 
 ### Read options
 
