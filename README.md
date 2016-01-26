@@ -76,7 +76,7 @@ Name | Type | Required | Description
 `table`   | string | yes | table to query
 `raw` | string | no | send a raw SQL query to PostgreSQL
 `debug` | boolean | no | output a query corresponding to current set of options and filters
-`timeField` | string | no | assume date time column, `to` and `from` options will use this to limit rows by time
+`timeField` | string | no | assume date time column, `to` and `from` options will use this to limit rows by time. Include this option to sort results by time.
 `fetchSize` | integer | no | row limit, defaults to 10000 records
 `from` | moment | no | select points after this time (inclusive)
 `to`   | moment | no | select points before this time (exclusive)
