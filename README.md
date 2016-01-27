@@ -95,6 +95,10 @@ You may want to use `Number.fromString()` [function](http://juttle.github.io/jut
 in the juttle program if your data has numbers of these types.
 When juttle reads fields of PostgreSQL `real` and `double precision` types, their values are treated as numbers.
 
+## Time Zones
+
+Use the `timestamp with time zone` [date type](http://www.postgresql.org/docs/9.2/static/datatype-datetime.html) in your postgres table to avoid time zone confusion. If your timestamp value does not have a time zone, Postgres will use the local system [TimeZone](http://www.postgresql.org/docs/9.2/static/runtime-config-client.html#GUC-TIMEZONE) parameter and then convert to UTC.
+
 ## Contributing
 
 Contributions are welcome! Please file an issue or open a pull request.
