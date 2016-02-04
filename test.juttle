@@ -1,0 +1,7 @@
+
+//read postgres -raw 'DROP TABLE IF EXISTS kb_out; CREATE TABLE kb_out(name text,host text,time timestamp with time zone,value double precision);'
+//read file -format 'json' -file '/Users/vlad/Dev/jut/open/outrigger/examples/postgres-diskstats/kbs_metrics.json' | write postgres -table 'kb_out'
+//read postgres -raw 'CREATE INDEX host_time ON kb_out (host,time);'
+
+//read postgres -table 'kb_out' | reduce count()
+read postgres -table 'kb_out' -from :2014-02-22T20:52:36.000Z: -to :2014-02-23T22:52:34.000Z: -timeField 'time' | reduce -every :1h: value=sum(value) by host
