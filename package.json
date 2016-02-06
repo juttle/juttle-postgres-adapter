@@ -1,6 +1,6 @@
 {
   "name": "juttle-postgres-adapter",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "Juttle adapter for PostgreSQL",
   "keywords": [
     "juttle",
