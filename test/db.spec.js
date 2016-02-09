@@ -1,2 +1,2 @@
-require('juttle-sql-adapter-common/test/utils');
+require('./conf');
 require('juttle-sql-adapter-common/test/db.spec');
