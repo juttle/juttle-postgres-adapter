@@ -32,9 +32,9 @@ function PostgresAdapter(config) {
                 _.each(points, function(pt) {
                     _.each(self.aggregation_targets, function(aggregation_field) {
                         if (pt.hasOwnProperty(aggregation_field)) {
-                            pt[aggregation_field] = parseFloat(pt[aggregation_field]);
-                            if (isNaN(pt[aggregation_field])) {
-                                pt[aggregation_field] = null;
+                            var value = parseFloat(pt[aggregation_field]);
+                            if (!isNaN(value)) {
+                                pt[aggregation_field] = value;
                             }
                         }
                     });
