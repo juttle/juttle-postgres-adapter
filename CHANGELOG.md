@@ -1,17 +1,12 @@
 # Change Log
 This file documents all notable changes to the juttle-postgres-adapter. The release numbering uses [semantic versioning](http://semver.org).
 
-## 0.3.2
+## 0.3.1
 Released 2016-02-08
 
 ### Major Changes
-- Bug fix to fix empty aggregate results
-
-## 0.3.1
-Released 2016-02-07
-
-### Major Changes
 - Unit tests refactored such that you can use mocha to run files directly
+- Empty Aggregate handling fix
 
 ## 0.3.0
 Released 2016-02-05
