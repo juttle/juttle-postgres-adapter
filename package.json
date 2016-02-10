@@ -12,10 +12,12 @@
   "license": "Apache-2.0",
   "repository": "juttle/juttle-postgres-adapter",
   "scripts": {
-    "test": "mocha test/*.spec.js",
-    "jshint": "jshint *.js test/*.js",
-    "style": "jscs *.js test/*.js",
-    "lint": "npm run jshint && npm run style"
+    "test": "npm run unit && npm run lint",
+    "test-coverage": "istanbul cover node_modules/.bin/_mocha -- test/*.spec.js",
+    "unit": "mocha test/*.spec.js",
+    "hist": "mocha test/*.spec.js -g live -i",
+    "lint": "eslint **/*.js *.js",
+    "check-coverage": "istanbul check-coverage"
   },
   "dependencies": {
     "juttle-sql-adapter-common": "^0.3.2",
@@ -24,11 +26,10 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
-    "sqlite3": "^3.1.1",
     "chai": "^1.10.0",
-    "jshint": "^2.9.1-rc1",
-    "mocha": "^2.3.4",
-    "jscs": "^2.6.0"
+    "eslint": "^1.10.3",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.3.4"
   },
   "engines": {
     "node": ">=4.2.0",

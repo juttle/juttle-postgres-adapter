@@ -109,9 +109,3 @@ npm test
 ```
 
 Both are run automatically by Travis.
-
-When developing you may run into failures during linting where jscs complains
-about your coding style and an easy way to fix those files is to simply run
-`jscs --fix test` or `jscs --fix lib` from the root directory of the project.
-After jscs fixes things you should proceed to check that those changes are
-reasonable as auto-fixing may not produce the nicest of looking code.
