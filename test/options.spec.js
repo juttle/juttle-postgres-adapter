@@ -11,7 +11,7 @@ describe('unknown column error', function() {
     });
     it('sql time usage with invalid timeField when paginating', function() {
         return check_juttle({
-            program: 'read sql -fetchSize 100 -timeField "wrong_time_field" -table "logs_create" | reduce -every :3 days: avg = avg(code)'
+            program: 'read sql -fetchSize 100 -from :200 days ago: -timeField "wrong_time_field" -table "logs_create" | reduce -every :3 days: avg = avg(code)'
         })
         .then(function(result) {
             expect(result.warnings).to.have.length(0);

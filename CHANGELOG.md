@@ -1,6 +1,15 @@
 # Change Log
 This file documents all notable changes to the juttle-postgres-adapter. The release numbering uses [semantic versioning](http://semver.org).
 
+## 0.4.0
+Released 2016-02-18
+
+### Major Changes
+- `reduce -every` concurrent batch execution.
+- Change in config style from connection string to object. Also allows array of credentials.
+- Dynamically change credential object or database name.
+- Large dataset pagination over time bug-fix.
+
 ## 0.3.1
 Released 2016-02-08
 
