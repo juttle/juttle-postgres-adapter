@@ -10,7 +10,7 @@ function getConfig() {
 
     if (process.env.PGHOSTADDR) { //local postgres install
         //env variables: http://www.postgresql.org/docs/8.4/static/libpq-envars.html
-        connectionParams.ip = process.env.PGHOSTADDR;
+        connectionParams.hostname = process.env.PGHOSTADDR;
 
         if (process.env.PGDATABASE) {
             connectionParams.db = process.env.PGDATABASE;
@@ -25,35 +25,35 @@ function getConfig() {
             connectionParams.port = process.env.PGPORT;
         }
     } else if (process.env.DOCKER_HOST) { //docker-machine postgres install
-        connectionParams.ip = url.parse(process.env.DOCKER_HOST).hostname;
+        connectionParams.hostname = url.parse(process.env.DOCKER_HOST).hostname;
     }
 
     _.defaults(connectionParams, {
         user: 'postgres',
         pw: '',
-        ip: 'localhost',
+        hostname: 'localhost',
         db: 'postgres',
-        port: '5432'
+        port: '5432',
+        id: 'default'
     });
 
-    var postgresConnectionStr = url.format({
-        protocol: 'postgres:',
-        auth: connectionParams.user + ':' + connectionParams.pw,
-        hostname: connectionParams.ip,
-        pathname: '/' + connectionParams.db,
-        slashes: true,
-        port: connectionParams.port
-    });
-
-    return {
-        "connection": postgresConnectionStr
-    };
+    return connectionParams;
 }
 
 TestUtils.getAdapterClass = function () {
     return require('../');
 };
-TestUtils.getAdapterConfig = function (useFake) {
-    return useFake ? { connection: "postgres://postgres:@nonhost:5432/postgres" } : getConfig();
+TestUtils.getAdapterConfig = function () {
+    return [
+        getConfig(),
+        {
+            user: 'postgres',
+            pw: '',
+            hostname: 'nonhost',
+            port: 5432,
+            db: 'should_not_work',
+            id: 'fake'
+        }
+    ];
 };
 module.exports = TestUtils;

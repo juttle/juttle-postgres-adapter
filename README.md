@@ -56,17 +56,16 @@ within Juttle. To do so, use the following format when adding a Postgres configu
 ```json
 {
     "adapters": {
-        "postgres": {
-            "connection": "postgres://postgres@localhost:5432/postgres"
-        }
+        "postgres": [{
+            "hostname": "localhost",
+            "port": 5432,
+            "user": "postgres",
+            "pw": "",
+            "db": "postgres",
+            "id": "default"
+        }]
     }
 }
-```
-
-The `connection` key should point to your PostgreSQL instance. The format of the connection string is:
-
-```
-<protocol>://<username>[:<>password]@<hostname>:<port>/<database_name>
 ```
 
 ### Read options
@@ -80,12 +79,16 @@ Name | Type | Required | Description
 `fetchSize` | integer | no | row limit, defaults to 10000 records
 `from` | moment | no | select points after this time (inclusive)
 `to`   | moment | no | select points before this time (exclusive)
+`db`   | string | no | select the database name to use in your instance
+`id`   | string | no | select the config instance to use
 
 ### Write options
 
 Name | Type | Required | Description
 -----|------|----------|-------------
 `table`   | string | yes | table to write points into
+`db`   | string | no | select the database name to use in your instance
+`id`   | string | no | select the config instance to use
 
 ## Numeric Types
 

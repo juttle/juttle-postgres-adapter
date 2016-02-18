@@ -5,18 +5,51 @@
 var _ = require('underscore');
 var util = require("util");
 var SqlAdapterCommon = require('juttle-sql-adapter-common');
+var url = require('url');
+var Knex = require('knex');
+
+var config_properties = ['user', 'pw', 'hostname', 'db', 'port'];
+
+function _assign_knex_getter() {
+    var db = require('juttle-sql-adapter-common/lib/db');
+    db.getKnex = function(singleDBConfig, options) {
+        options = options || {};
+
+        var conf = _.clone(singleDBConfig);
+        if (options.db) {
+            conf.db = options.db;
+        }
+
+        var conn = getConnectionProperty(conf);
+
+        return Knex({
+            "client": "pg",
+            "connection": conn
+        });
+    };
+}
+
+function getConnectionProperty(singleDBConfig) {
+    _.each(config_properties, function(prop) {
+        if (!singleDBConfig.hasOwnProperty(prop)) {
+            throw new Error('Each configuration must contain a field: ' + prop);
+        }
+    });
+
+    return url.format({
+        protocol: 'postgres:',
+        auth: singleDBConfig.user + ':' + singleDBConfig.pw,
+        hostname: singleDBConfig.hostname,
+        pathname: '/' + singleDBConfig.db,
+        slashes: true,
+        port: singleDBConfig.port
+    });
+}
+
 
 function PostgresAdapter(config) {
-    var clientSpecficConfig = {};
-
-    if (config.connection) {
-        clientSpecficConfig.knex = require('knex')({
-            "client": "pg",
-            "connection": config.connection
-        });
-    }
-
-    var baseSql = SqlAdapterCommon.call(this, clientSpecficConfig);
+    var baseSql = SqlAdapterCommon.call(this, config);
+    _assign_knex_getter();
 
     baseSql.name = 'postgres';
 
