@@ -40,11 +40,14 @@ function getConfig() {
     return connectionParams;
 }
 
-TestUtils.getAdapterClass = function () {
-    return require('../');
+TestUtils.getDBClass = function () {
+    return require('../lib/db');
+};
+TestUtils.getAdapterName = function () {
+    return 'postgres';
 };
 TestUtils.getAdapterConfig = function () {
-    return [
+    var conf = [
         getConfig(),
         {
             user: 'postgres',
@@ -55,5 +58,7 @@ TestUtils.getAdapterConfig = function () {
             id: 'fake'
         }
     ];
+    conf.path = './';
+    return conf;
 };
 module.exports = TestUtils;

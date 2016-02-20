@@ -1,6 +1,16 @@
 # Change Log
 This file documents all notable changes to the juttle-postgres-adapter. The release numbering uses [semantic versioning](http://semver.org).
 
+## 0.5.0
+Released 2016-02-24
+
+### Major Changes
+- Use new adapter API: Made compatible with Juttle 0.5.0.
+- Use new allowedOptions shared logic.
+- Make Filter class extending from ASTVisitor available from AdapterAPI.
+- Change optimize class based on new graph changes.
+- Refactor db to extend from shared db class.
+
 ## 0.4.0
 Released 2016-02-18
 
