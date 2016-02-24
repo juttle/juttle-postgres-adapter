@@ -1,5 +1,6 @@
+require('./conf');
 var expect = require('chai').expect;
-var TestUtils = require('./conf');
+var TestUtils = require('juttle-sql-adapter-common/test/utils');
 var check_juttle = TestUtils.check_sql_juttle;
 
 require('juttle-sql-adapter-common/test/options.spec');
