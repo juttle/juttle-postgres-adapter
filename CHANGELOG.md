@@ -1,6 +1,12 @@
 # Change Log
 This file documents all notable changes to the juttle-postgres-adapter. The release numbering uses [semantic versioning](http://semver.org).
 
+## 0.5.1
+Released 2016-03-09
+
+### Major Changes
+- Use new checkJuttle test utility api
+
 ## 0.5.0
 Released 2016-02-24
 

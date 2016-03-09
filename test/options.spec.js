@@ -10,9 +10,22 @@ describe('unknown column error', function() {
         TestUtils.init();
         return TestUtils.createTables(['logs_create']);
     });
+    it('sql time usage with invalid timeField when batching', function() {
+        return check_juttle({
+            program: 'read sql -fetchSize 100 -from :200 days ago: -to :now: -timeField "wrong_time_field" -table "logs_create" | reduce -every :3 days: avg = avg(code)'
+        })
+        .then(function(result) {
+            expect(result.warnings).to.have.length(0);
+            expect(result.sinks.table).to.have.length(0);
+
+            expect(result.errors).to.have.length(1);
+            expect(result.errors[0])
+                .to.match(/"wrong_time_field" (is undefined|does not exist)| Unknown column 'wrong_time_field'/);
+        });
+    });
     it('sql time usage with invalid timeField when paginating', function() {
         return check_juttle({
-            program: 'read sql -fetchSize 100 -from :200 days ago: -timeField "wrong_time_field" -table "logs_create" | reduce -every :3 days: avg = avg(code)'
+            program: 'read sql -fetchSize 100 -from :200 days ago: -timeField "wrong_time_field" -table "logs_create"'
         })
         .then(function(result) {
             expect(result.warnings).to.have.length(0);
