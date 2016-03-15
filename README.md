@@ -38,6 +38,8 @@ read postgres -timeField "create_time" -table "logs -from :2 days ago: -to :1 ho
 The content of the column indicated by `timeField` will appear as the `time`
 field in resulting points.
 
+An end-to-end example is described [here](https://github.com/juttle/juttle-engine/tree/master/examples/postgres-diskstats) and deployed to the demo system [demo.juttle.io](http://demo.juttle.io/?path=/examples/postgres-diskstats/throughput.juttle).
+
 ## Installation
 
 Like Juttle itself, the adapter is installed as a npm package. Both Juttle and
